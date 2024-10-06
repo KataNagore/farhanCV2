@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8fafc">
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+    <link rel="manifest" href="manifest.json">
+    <title>Muhammad Farhan Saputra - Informatika</title>
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav>
+      <div class="nav">
+        <div class="logo">
+          <img class="logo" src="images\Logo_Unand_PTNBH.png" alt="Logo Unand">
+        </div>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Header -->
+    <header>
+      <div class="main-container">
+        <section id="hero">
+          <div class="hero-left">
+            <h3 class="pre-title">My name is</h3>
+            <h1 class="hero-name">Muhammad <span>Farhan Saputra</span></h1>
+            <p>
+              Mahasiswa aktif Fakultas Teknologi Informasi di bidang Informatika. 
+              Saya memiliki minat yang besar dalam ilmu komputer dan informatika dan 
+              telah aktif berorganisasi di masa perkuliahan.
+            </p>
+          </div>
+
+          <div class="hero-right">
+            <img style="height: 50%; width: 50%; border-radius: 10%;" src="./images/title.png" alt="Person Standing" />
+          </div>
+        </section>
+      </div>
+    </header>
+    <!-- End Header -->
+     <script>
+      window.addEventListener("load",()=>{
+        if("serviceWorker" in navigator){
+          navigator.serviceWorker.register("service-worker.js")
+        }
+      })
+     </script>
+  </body>
+
+
+    
