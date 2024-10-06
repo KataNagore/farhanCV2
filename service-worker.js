@@ -1,5 +1,5 @@
 const cacheName = "farhanCV-v3"
-const preCache = ["/"]
+const preCache = ["index.html", "about.html", "styles\style.css", "styles\responsive.css"]
 
 self.addEventListener("install", (e) => {
   console.log("service worker installed")
