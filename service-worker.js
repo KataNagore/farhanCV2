@@ -34,7 +34,7 @@ self.addEventListener('activate', evt =>{
     })
   )
 })
-
+//CONTOH COMMIT KE GITHUB
 self.addEventListener('fetch', evt =>{
   //console.log('fetch event', evt);
   evt.respondWith(
