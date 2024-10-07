@@ -1,33 +1,52 @@
-const cacheName = "farhanCV-v3"
-const preCache = ["index.html", "about.html", "styles\style.css", "styles\responsive.css"]
 
-self.addEventListener("install", (e) => {
-  console.log("service worker installed")
+const staticCacheName = 'farhan-static';
+const dynamicCache = 'farhan-dynamic';
+const assets = [
+  '/',
+  '/index.html',
+  '/images/title.png',
+  '/styles/style.css',
+  '/styles/responsive.css',
+  '/app.js',
+  '/images/hero.svg',
+  '/images/Logo_Unand_PTNBH.png',
+  '/offline.html'
+];
 
-  e.waitUntil(
-    (async () => {
-      const cache = await caches.open(cacheName)
-      cache.addAll(preCache)
-    })(),
+self.addEventListener('install', evt =>{
+  //console.log('service worker has been installed');
+  evt.waitUntil(
+    caches.open(staticCacheName).then(cache => {
+      console.log('caching shell assets');
+      cache.addAll(assets);
+    })
   )
 })
 
-self.addEventListener("fetch", (e) => {
-  e.respondWith(
-    (async () => {
-      const cache = await caches.open(cacheName)
-      const resCache = await cache.match(e.request)
-
-      if (resCache) return resCache
-
-      try {
-        const res = await fetch(e.request)
-
-        cache.put(e.request, res.clone())
-        return res
-      } catch (error) {
-        console.log(error)
-      }
-    })(),
+self.addEventListener('activate', evt =>{
+  //console.log('service worker has been activated');
+  evt.waitUntil(
+    caches.keys().then(keys => {
+      // console.log(keys);
+      return Promise.all(keys
+        .filter(key => key !== staticCacheName)
+        .map(key => caches.delete())
+      )
+    })
   )
 })
+
+self.addEventListener('fetch', evt =>{
+  //console.log('fetch event', evt);
+  evt.respondWith(
+    caches.match(evt.request).then(cacheRes => {
+      return cacheRes || fetch(evt.request).then(fetchRes => {
+        return caches.open(dynamicCache).then(cache => {
+          cache.put(evt.request.url, fetchRes.clone());
+          return fetchRes;
+
+        })
+      });
+    }).catch(() => caches.match('/offline.html'))
+  );
+});

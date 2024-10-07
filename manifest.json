@@ -1,12 +1,12 @@
 {
   "name": "farhanCV-v3",
-  "start_url": ".",
+  "start_url": "/index.html",
   "display": "standalone",
   "theme_color": "#f8fcfa",
   "background_color": "#f8fcfa",
   "icons": [
     {
-      "src": "icons/1.png",
+      "src": "icons/2.png",
       "type": "image/png",
       "sizes": "192x192"
     },
