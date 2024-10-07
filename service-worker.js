@@ -2,7 +2,6 @@
 const staticCacheName = 'farhan-static';
 const dynamicCache = 'farhan-dynamic';
 const assets = [
-  '/',
   'index.html',
   'images/title.png',
   'styles/style.css',
@@ -47,6 +46,6 @@ self.addEventListener('fetch', evt =>{
 
         })
       });
-    }).catch(() => caches.match('/offline.html'))
+    }).catch(() => caches.match('offline.html'))
   );
 });
