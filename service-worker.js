@@ -3,14 +3,14 @@ const staticCacheName = 'farhan-static';
 const dynamicCache = 'farhan-dynamic';
 const assets = [
   '/',
-  '/index.html',
-  '/images/title.png',
-  '/styles/style.css',
-  '/styles/responsive.css',
-  '/app.js',
-  '/images/hero.svg',
-  '/images/Logo_Unand_PTNBH.png',
-  '/offline.html'
+  'index.html',
+  'images/title.png',
+  'styles/style.css',
+  'styles/responsive.css',
+  'app.js',
+  'images/hero.svg',
+  'images/Logo_Unand_PTNBH.png',
+  'offline.html'
 ];
 
 self.addEventListener('install', evt =>{
